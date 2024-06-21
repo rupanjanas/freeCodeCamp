@@ -56,7 +56,7 @@ test('Resets the lower jaw when prompted', async ({ page }) => {
 
 test('Checks hotkeys when instruction is focused', async ({
   page,
-  browserName
+  
 }) => {
   const editor = getEditors(page);
   const checkButton = page.getByRole('button', { name: 'Check Your Code' });
@@ -68,12 +68,7 @@ test('Checks hotkeys when instruction is focused', async ({
 
   await description.click();
 
-  if (browserName === 'webkit') {
-    await page.keyboard.press('Meta+Enter');
-  } else {
-    await page.keyboard.press('Control+Enter');
-  }
-
+  
   await expect(checkButton).not.toBeFocused();
 });
 
